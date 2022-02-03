@@ -1,28 +1,22 @@
-const Statistics = () => {
-  return `
-	 <section class='statistics'>
-		<h2 class='title'>Upload stats</h2>
+import styles from "./styles.module.css";
 
-		<ul class='stat-list'>
-			<li class='item'>
-				<span class='label'>.docx</span>
-				<span class='percentage'>4%</span>
-			</li>
-			<li class='item'>
-				<span class='label'>.mp3</span>
-				<span class='percentage'>14%</span>
-			</li>
-			<li class='item'>
-				<span class='label'>.pdf</span>
-				<span class='percentage'>41%</span>
-			</li>
-			<li class='item'>
-				<span class='label'>.mp4</span>
-				<span class='percentage'>12%</span>
-			</li>
-		</ul>
-	</section>
-	`;
+const Statistics = ({ title, stats }) => {
+  return (
+    <section className={styles.statistics}>
+      {title ? <h2 className={styles.title}>{title}</h2> : " "}
+
+      <ul className={styles.statsList}>
+        {stats.map(({ label, percentage, id }) => {
+          return (
+            <li className={styles.item} key={id}>
+              <span className={styles.label}>{label}</span>
+              <span className={styles.percentage}>{percentage}%</span>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
 };
 
 export default Statistics;
