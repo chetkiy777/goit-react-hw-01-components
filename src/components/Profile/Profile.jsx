@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./styles.module.css";
 
 const Profile = ({ username, tag, location, avatar, stats }) => {
@@ -27,6 +28,14 @@ const Profile = ({ username, tag, location, avatar, stats }) => {
       </ul>
     </div>
   );
+};
+
+Profile.propTypes = {
+  username: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
+  avatar: PropTypes.string,
+  stats: PropTypes.arrayOf(PropTypes.number),
 };
 
 export default Profile;
